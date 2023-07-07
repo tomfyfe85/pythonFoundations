@@ -1,0 +1,8 @@
+# >>> len("This is a very very long string. How long, you ask? Let's find out!")
+# 67
+
+# >>> str(67)
+# '67'
+
+# >>> int('67')
+# 67
