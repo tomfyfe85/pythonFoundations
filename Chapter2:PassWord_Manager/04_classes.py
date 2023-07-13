@@ -51,13 +51,13 @@ greeter2 = Greeter2('Allan')
 print(greeter2.hello())
 
 class Person():
-         # note that we're not using instance variables here
-     def __init__(self, first_name, surname):
+# note that we're not using instance variables here
+    def __init__(self, first_name, surname):
         self.first_name = first_name
         self.surname = surname
 
-     def full_name(self):
-     # will this work without using instance variables above?
+    def full_name(self):
+    # will this work without using instance variables above?
         return f"{self.first_name} {self.surname}"
 
 alan_turing = Person("Alan", "Turing")
