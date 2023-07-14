@@ -50,3 +50,9 @@ print(string_list)
 
 
 
+def add_to_list(list, el):
+    new = list.append(el)
+    # list.append(el)
+    return new
+
+print(add_to_list(["a", "b", "c"], 'd'))
