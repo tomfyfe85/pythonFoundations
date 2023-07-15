@@ -34,16 +34,13 @@ no Returns
 
 if password is valid create dictionary entry ie:
 ¸
-def is_valid(x, y):
     arr = ["!", "@", "$", "%", "&"]
 
     for char in arr:
-        if y.find(char) >= 0:
-        self.dict[x] = y
+        if password.find(char) >= 0 and len(password) >= 8 :
+        self.dict[service_name] = password
         else:
             None
-
-def is_valid(service_name, password)
 
 - get_for_service(service_name)
 returns the password for the service name.
