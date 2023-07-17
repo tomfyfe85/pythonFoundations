@@ -1,0 +1,10 @@
+At the moment, passwords are stored in a simple 
+dictionary where each service-password combination is stored 
+as a key-value pair. If we want to track when a password was 
+added and updated, we'll need to consider alternative data 
+structures and learn how to choose between them.
+
+The other tasks will require us to learn more about 
+Dictionaries and Lists. For example, if we want to validate 
+that a password is unique, we'll have to compare it with all 
+the other currently stored passwords.
