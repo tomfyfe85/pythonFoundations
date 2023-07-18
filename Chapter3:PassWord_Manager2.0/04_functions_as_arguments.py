@@ -42,3 +42,23 @@ print(report_pay(4320.0, fixed_tax_1000))
 print("Mount Doom's Pay:")
 print(report_pay(5000.0, calculate_tax_for_mordor))
 # Your gross pay was 5000.0, minus 5000.0 makes your net pay 0.0
+def as_sun_lover(cel):
+    if cel >= 25:
+        return 'great'
+    else:
+        return 'not great'
+
+def as_snow_lover(cel):
+    if cel <= 0:
+        return 'great'
+    else:
+        return 'not great'
+
+def report_weather(temp, lover):
+    return lover(temp)
+
+
+print(report_weather(24, as_sun_lover))
+print(report_weather(25, as_sun_lover))
+print(report_weather(1, as_snow_lover))
+print(report_weather(0, as_snow_lover))
