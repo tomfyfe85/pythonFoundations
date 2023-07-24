@@ -29,3 +29,15 @@ print(next_round)
 
 new_round = {key:value for (key, value) in tourny_dict.items() if value > 20 }
 print(new_round)
+
+# What are dictionaries
+# Dictionaries are groups of key:value pair
+# 
+# How dictionaries can be manipulated?
+# Using loops and comprehension, and updating and deleting
+
+# How this differs from list manipulation
+# Lists are made up of single elements
+
+# What is more "pythonic", advanced methods or simple loops?
+#Simple loops
