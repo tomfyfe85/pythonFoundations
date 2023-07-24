@@ -20,3 +20,12 @@ print(card_friends)
 shuffle(card_suit)
 card_friends = {friend: card for (friend, card) in zip(friends, card_suit)}
 print(card_friends)
+
+tourny_dict = {'Dan': 10, 'Wolfgang': 20, 'June': 53, 'Tany': 37, 'Sharon': 14, 'Will': 0}
+
+next_round = {}
+next_round = dict(filter(lambda player: player[1] > 20, tourny_dict.items()))
+print(next_round)
+
+new_round = {key:value for (key, value) in tourny_dict.items() if value > 20 }
+print(new_round)
