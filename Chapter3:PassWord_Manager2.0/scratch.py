@@ -24,3 +24,9 @@ def greater_than(lyst, num):
 
 
 print(greater_than([9, 3, 6, 44, 7, 7], 6))
+
+def less_than(lyst, num):
+  newList = filter(lambda int:  int < num, lyst)
+  return list(newList)
+
+print(less_than([9, 3, 6, 44, 1, 7, 7], 6))
