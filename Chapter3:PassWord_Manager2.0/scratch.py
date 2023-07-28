@@ -51,6 +51,32 @@ def where_value_below(dic, num):
 
 print(where_value_below({'cat': 4, 'person': 2, 'centipede': 100}, 5))
 
+# Class name: Greeter
+# Purpose: say various greetings to a user with a given name
+# Methods:
+#   1. Name: hello
+#      Arguments: one, a string representing a name
+#      Returns: a string like 'Hello, NAME!'
+#   2. Name: goodbye
+#      Arguments: one, a string representing a name
+#      Returns: a string like 'Goodbye, NAME!'
+#   3. Name: good_night
+#      Arguments: one, a string representing a name
+#      Returns: a string like 'Good night, NAME!'
+#   4. Name: good_morning
+#      Arguments: one, a string representing a name
+#      Returns: a string like 'Good morning, NAME!'
+# Example usage:
+#   > greeter = Greeter()
+#   > greeter.hello('Bobby')
+#   'Hello, Bobby!'
+#   > greeter.goodbye('Bobby')
+#   'Goodbye, Bobby!'
+#   > greeter.good_night('Bobby')
+#   'Good night, Bobby!'
+#   > greeter.good_morning('Bobby')
+#   'Good morning, Bobby!'
+
 class Greeter():
     def hello(self, name):
         return f"Hello, {name}!"
@@ -64,6 +90,25 @@ class Greeter():
     def good_morning(self, name):
         return f"Good morning, {name}!"
     
+# Class name: Basket
+# Purpose: store a list of items
+# Methods:
+#   1. Name: __init__
+#      Arguments: none
+#   2. Name: add
+#      Arguments: one item of any type
+#      Returns: nothing
+#   3. Name: list_items
+#      Arguments: none
+#      Returns: a list of all the items that have been added
+# Example usage:
+#   > basket = Basket()
+#   > basket.add('apple')
+#   > basket.add('banana')
+#   > basket.add('orange')
+#   > basket.list_items()
+#   ['apple', 'banana', 'orange']
+    
 class Basket():
     def __init__(self): 
         self.lyst = []
@@ -72,4 +117,65 @@ class Basket():
         self.lyst.append(item)
 
     def list_items(self):
+        return self.lyst
+
+
+# Class name: Calculator
+# Purpose: perform simple calculations and track the history
+# Methods:
+#   1. Name: __init__
+#      Arguments: none
+#   2. Name: add
+#      Arguments: two numbers
+#      Returns: the result of adding the two numbers
+#   3. Name: multiply
+#      Arguments: two numbers
+#      Returns: the result of multiplying the first by the second
+#   4. Name: subtract
+#      Arguments: two numbers
+#      Returns: the result of subtracting the second from the first
+#   5. Name: divide
+#      Arguments: two numbers
+#      Returns: the result of dividing the first by the second
+#   6. Name: list_history
+#      Arguments: none
+#      Returns: a list of all the previous results calculations
+# Example usage:
+#   > calculator = Calculator()
+#   > calculator.add(1, 2)
+#   3
+#   > calculator.multiply(3, 4)
+#   12
+#   > calculator.subtract(5, 6)
+#   -1
+#   > calculator.divide(7, 8)
+#   0.875
+#   > calculator.list_history()
+#   [3, 12, -1, 0.875]
+
+class Calculator():
+    def __init__(self):
+        self.lyst = []
+
+    def add(self, a, b):
+        self.lyst.append(a + b)
+        return self.lyst[0]
+    
+    def multiply(self, a, b):
+        self.lyst.append(a * b)
+        return self.lyst[0]
+    
+    def multiply(self, a, b):
+        self.lyst.append(a * b)
+        return self.lyst[0]
+    
+    def subtract(self, a, b):
+        self.lyst.append(a - b)
+        return self.lyst[0]
+
+    def divide(self, a, b):
+        self.lyst.append(a/b)
+        return self.lyst[0]
+    
+    def list_history(self):
         return self.lyst
