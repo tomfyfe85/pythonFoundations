@@ -247,5 +247,6 @@ def list_employed_by(employer, lyst):
     # return [list(student.items()) for student in lyst if student.get(') == employer]
 
 
-print(list_employed_by('NASA', [{'name' : 'Jo', 'employer' : 'NASA'}, {'name' : 'Alex', 'employer' : 'NASA'}, {'name' : 'Bobby', 'employer' : 'Google'}]))
+  print(list_employed_by('NASA', [{'name' : 'Jo', 'employer' : 'NASA'}, {'name' : 'Alex', 'employer' : 'NASA'}, {'name' : 'Bobby', 'employer' : 'Google'}]))
+
 
