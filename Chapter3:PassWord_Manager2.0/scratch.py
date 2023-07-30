@@ -231,6 +231,21 @@ def list_students(a):
 print(list_students(13))
 
 def list_employed_by(employer, lyst):
-    new = (list(filter(lambda student: student['employer'] == employer, lyst)))
-    return new
+    # new = (list(filter(lambda student: student['employer'] == employer, lyst)))
+    # return new
+    # return [student for student in lyst if employer == student['employer']]
+  
+  # newList = []
+  # for student in lyst:
+  #     new = list(student.items())
+  #     print(new)
+  #     if new[1][1] == employer:
+  #       newList.append(student)
+
+  # return newList
+
+    # return [list(student.items()) for student in lyst if student.get(') == employer]
+
+
 print(list_employed_by('NASA', [{'name' : 'Jo', 'employer' : 'NASA'}, {'name' : 'Alex', 'employer' : 'NASA'}, {'name' : 'Bobby', 'employer' : 'Google'}]))
+
