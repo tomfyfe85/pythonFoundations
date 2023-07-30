@@ -25,22 +25,28 @@ def greater_than(lyst, num):
 
 print(greater_than([9, 3, 6, 44, 7, 7], 6))
 
+
 def less_than(lyst, num):
-  newList = filter(lambda int: int < num, lyst)
-  return list(newList)
+    newList = filter(lambda int: int < num, lyst)
+    return list(newList)
+
 
 print(less_than([9, 3, 6, 44, 1, 7, 7], 6))
+
 
 def all_above(lyst, num):
     newList = list(map(lambda int: True if num < int else False, lyst))
     # return True if True in newList else False
     return list(newList)
 
+
 print(all_above([9, 3, 6, 44, 1, 7, 7], 6))
+
 
 def add_key_value_pair(dic, key, val):
     dic[key] = val
     return dic
+
 
 def where_value_below(dic, num):
     newDic = {}
@@ -49,7 +55,8 @@ def where_value_below(dic, num):
             newDic[key] = val
     return newDic
 
-print(where_value_below({'cat': 4, 'person': 2, 'centipede': 100}, 5))
+
+print(where_value_below({"cat": 4, "person": 2, "centipede": 100}, 5))
 
 # Class name: Greeter
 # Purpose: say various greetings to a user with a given name
@@ -77,19 +84,21 @@ print(where_value_below({'cat': 4, 'person': 2, 'centipede': 100}, 5))
 #   > greeter.good_morning('Bobby')
 #   'Good morning, Bobby!'
 
-class Greeter():
+
+class Greeter:
     def hello(self, name):
         return f"Hello, {name}!"
-    
+
     def goodbye(self, name):
         return f"Goodbye, {name}!"
-    
+
     def good_night(self, name):
         return f"Good night, {name}!"
-    
+
     def good_morning(self, name):
         return f"Good morning, {name}!"
-    
+
+
 # Class name: Basket
 # Purpose: store a list of items
 # Methods:
@@ -108,11 +117,12 @@ class Greeter():
 #   > basket.add('orange')
 #   > basket.list_items()
 #   ['apple', 'banana', 'orange']
-    
-class Basket():
-    def __init__(self): 
+
+
+class Basket:
+    def __init__(self):
         self.lyst = []
-    
+
     def add(self, item):
         self.lyst.append(item)
 
@@ -153,29 +163,74 @@ class Basket():
 #   > calculator.list_history()
 #   [3, 12, -1, 0.875]
 
-class Calculator():
+
+class Calculator:
     def __init__(self):
         self.lyst = []
 
     def add(self, a, b):
         self.lyst.append(a + b)
         return self.lyst[0]
-    
+
     def multiply(self, a, b):
         self.lyst.append(a * b)
         return self.lyst[0]
-    
+
     def multiply(self, a, b):
         self.lyst.append(a * b)
         return self.lyst[0]
-    
+
     def subtract(self, a, b):
         self.lyst.append(a - b)
         return self.lyst[0]
 
     def divide(self, a, b):
-        self.lyst.append(a/b)
+        self.lyst.append(a / b)
         return self.lyst[0]
-    
+
     def list_history(self):
         return self.lyst
+
+
+# Class name: Cohort
+# Purpose: store a list of students
+# Methods:
+#   1. Name: __init__
+#      Arguments: none
+#      self.dikt = {}
+#   2. Name: add_student
+#      Arguments: one dictionary representing a student
+#      Returns: nothing
+#  self.dikt.update(student)
+
+#   3. Name: list_students
+#      Arguments: none
+#      Returns: a list of all the students that have been added
+#  return [self.dikt]
+
+#   4. Name: list_employed_by
+#      Arguments: one string, the name of an employer
+#      Returns: a list of all the students who work for that employer
+# filter through list for only students who have been employed by the arg
+# filtered_List = filter(lambda student: for item in student: student[item] == arg, self.list )
+    
+# Example usage:
+#   > cohort = Cohort()
+#   > cohort.add_student({'name' : 'Jo', 'employer' : 'NASA'})
+#   > cohort.add_student({'name' : 'Alex', 'employer' : 'NASA'})
+#   > cohort.add_student({'name' : 'Bobby', 'employer' : 'Google'})
+#   > cohort.list_students()
+#   [{'name' : 'Jo', 'employer' : 'NASA'}, {'name' : 'Alex', 'employer' : 'NASA'}, {'name' : 'Bobby', 'employer' : 'Google'}]
+#   > cohort.list_employed_by('NASA')
+#   [{'name' : 'Jo', 'employer' : 'NASA'}, {'name' : 'Alex', 'employer' : 'NASA'}]
+
+
+def list_students(a):
+    return [a]
+
+print(list_students(13))
+
+def list_employed_by(employer, lyst):
+    new = (list(filter(lambda student: student['employer'] == employer, lyst)))
+    return new
+print(list_employed_by('NASA', [{'name' : 'Jo', 'employer' : 'NASA'}, {'name' : 'Alex', 'employer' : 'NASA'}, {'name' : 'Bobby', 'employer' : 'Google'}]))
