@@ -249,4 +249,37 @@ def list_employed_by(employer, lyst):
 
   print(list_employed_by('NASA', [{'name' : 'Jo', 'employer' : 'NASA'}, {'name' : 'Alex', 'employer' : 'NASA'}, {'name' : 'Bobby', 'employer' : 'Google'}]))
 
+# Class name: Person
+# Purpose: store a person's name, pets and addresses
+# Methods:
+#   1. Name: __init__
+#      Arguments: one complex dictionary, see below for structure.
+#   2. Name: get_work_address
+#      Arguments: none
+#      Returns: the work address in a nice format
+#   3. Name: get_home_address
+#      Arguments: none
+#      Returns: the home address in a nice format
+#   4. Name: get_pets
+#      Arguments: none
+#      Returns: a nice summary of the person's pets
+# Example usage:
+  # > person = Person({
+  #     'name' : 'Alex',
+  #     'pets' : [
+  #       {'name' : 'Arthur', 'animal' : 'cat'},
+  #       {'name' : 'Judith', 'animal' : 'dog'},
+  #       {'name' : 'Gwen', 'animal' : 'goldfish'}
+  #     ],
+  #     'addresses' : [
+  #       {'name' : 'work', 'building' : '50', 'street' : 'Commercial Street'},
+  #       {'name' : 'home', 'building' : '10', 'street' : 'South Street'}
+  #     ]
+  #   })
+#   > person.get_work_address()
+#   '50 Commercial Street'
+#   > person.get_home_address()
+#   '10 South Street'
+#   > person.get_pets()
+#   'Alex has 3 pets: a cat called Arthur, a dog called Judith, a goldfish called Gwen'
 
