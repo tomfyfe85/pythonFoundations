@@ -291,3 +291,8 @@ class Person:
         work_address = f"{self.dict['addresses'][0]['building']} {self.dict['addresses'][0]['street']}"
         print(work_address)
         return work_address
+
+    def get_home_address(self):
+      home = self.dict['addresses'][1]
+      return f"{home['building']} {home['street']}"
+  
