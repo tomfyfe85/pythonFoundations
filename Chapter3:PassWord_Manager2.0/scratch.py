@@ -283,3 +283,11 @@ def list_employed_by(employer, lyst):
 #   > person.get_pets()
 #   'Alex has 3 pets: a cat called Arthur, a dog called Judith, a goldfish called Gwen'
 
+class Person:
+    def __init__(self, complex_dict):
+        self.dict = complex_dict
+
+    def get_work_address(self):
+        work_address = f"{self.dict['addresses'][0]['building']} {self.dict['addresses'][0]['street']}"
+        print(work_address)
+        return work_address
