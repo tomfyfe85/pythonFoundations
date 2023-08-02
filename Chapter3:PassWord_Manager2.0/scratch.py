@@ -293,11 +293,17 @@ class Person:
         return work_address
 
     def get_home_address(self):
-      home = self.dict['addresses'][1]
-      return f"{home['building']} {home['street']}"
+        home = self.dict['addresses'][1]
+        return f"{home['building']} {home['street']}"
   
     def get_pets(self):
-      p = self.dict
-      pets = p['pets']
-      print(f"{p['name']} has {len(pets)} pets: a {pets[0]['animal']} called {pets[0]['name']}, a {pets[1]['animal']} called {pets[1]['name']}, a {pets[2]['animal']} called {pets[2]['name']}")
-      return f"{p['name']} has {len(pets)} pets: a {pets[0]['animal']} called {pets[0]['name']}, a {pets[1]['animal']} called {pets[1]['name']}, a {pets[2]['animal']} called {pets[2]['name']}"
+        p = self.dict
+        pets = p['pets']
+        print(f"{p['name']} has {len(pets)} pets: a {pets[0]['animal']} called {pets[0]['name']}, a {pets[1]['animal']} called {pets[1]['name']}, a {pets[2]['animal']} called {pets[2]['name']}")
+        return f"{p['name']} has {len(pets)} pets: a {pets[0]['animal']} called {pets[0]['name']}, a {pets[1]['animal']} called {pets[1]['name']}, a {pets[2]['animal']} called {pets[2]['name']}"
+
+
+    def get_pets(self):
+        pets = self.dict.get('pets', [])
+        pets_summary = ", ".join([f"a {pet['animal']} called {pet['name']}" for pet in pets])
+        return f"{self.dict['name']} has {len(pets)} pets: {pets_summary}"
