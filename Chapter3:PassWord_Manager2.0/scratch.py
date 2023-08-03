@@ -323,3 +323,103 @@ person = Person({
 })
 
 print(person.get_pets())
+
+# password manager 2 planning
+
+# == INSTRUCTIONS ==
+#
+# Purpose: Manage a user's (valid) passwords
+#
+# Methods:
+#   1. Name: __init__
+#      Arguments: none
+#      Add empty list instance variable
+
+#   2. Name: add
+#      Purpose: add a password for a service IF it is valid, otherwise do nothing
+#      Arguments: one string representing a service name,
+#                 one string representing a password
+#      Returns: None
+
+    # use password validator method from version 1
+    # if pass word is valid, create a new dictionary of password and service name
+    # check if password has been used before in another service
+    # add to list
+#    
+
+#   3. Name: remove
+#      Purpose: remove a password for a service
+#      Arguments: one string representing a service name
+#      Returns: None
+
+    # Remove from list if list['service name] == argument  
+
+#   4. Name: update
+#      Purpose: update a password for a service IF it is valid, otherwise do nothing
+#      Arguments: one string representing a service name,
+#                 one string representing a password
+#      Returns: None
+
+    # use password validator again
+    # password must be unique 
+    # .items() convert to tuples
+    # if list item [1]['service name'] == arg && password is valid ...
+    # ... list item [0]['password'] = arg
+
+#   5. Name: list_services
+#      Arguments: none
+#      Returns: a list of all the services for which the user has a password
+
+    #  list comp? create new list of passwords - for loop?
+        #  for x in list x[1].value ?
+
+#   6. Name: sort_services_by
+#      Arguments: A string, either 'service' or 'added_on',
+#                 (Optional) A string 'reverse' to reverse the order
+#      Returns: a list of all the services for which the user has a password
+#               in the order specified
+
+    #  takes two arguments (a, b)
+    #  if a == 'service' return list in alphabetical order
+    #  if a == 'added_on' return list as is
+    #  if b == reverse, return a in reverse
+
+#   7. Name: get_for_service
+#      Arguments: one string representing a service name
+#      Returns: the password for the given service, or None if none exists
+
+    # filter x['service name'] == arg, x['password]
+#
+# A reminder of the validity rules:
+#   1. A password must be at least 8 characters long
+#   2. A password must contain at least one of the following special characters:
+#      `!`, `@`, `$`, `%` or `&`
+#
+# And a new rule: passwords must be unique (not reused in other services).
+#
+# Example usage:
+#   > password_manager = PasswordManager2()
+#   > password_manager.add('gmail', '12ab5!678')   # Valid password
+#   > password_manager.add('facebook', '$abc1234') # Valid password
+#   > password_manager.add('youtube', '3@245256')  # Valid password
+#   > password_manager.add('twitter', '12345678')  # Invalid password, so ignored
+#   > password_manager.get_for_service('facebook')
+#   '$abc1234'
+#   > password_manager.list_services()
+#   ['gmail', 'facebook', 'youtube']
+#   > password_manager.remove('facebook')
+#   > password_manager.list_services()
+#   ['gmail', 'youtube']
+#   > password_manager.update('gmail', '12345678')  # Invalid password, so ignored
+#   > password_manager.get_for_service('gmail')
+#   '12ab5!678'
+#   > password_manager.update('gmail', '%21321415')  # Valid password
+#   > password_manager.get_for_service('gmail')
+#   '%21321415'
+#   > password_manager.sort_services_by('service')
+#   ['gmail', 'youtube']
+#   > password_manager.sort_services_by('added_on', 'reverse')
+#   ['youtube', 'gmail']
+
+# There are many more examples possible but the above should give you a good
+# idea.
