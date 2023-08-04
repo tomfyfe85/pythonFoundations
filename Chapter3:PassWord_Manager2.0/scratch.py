@@ -343,7 +343,9 @@ print(person.get_pets())
 
     # use password validator method from version 1
     # if pass word is valid, create a new dictionary of password and service name
+    # 
     # check if password has been used before in another service
+    # does the list include a dictionary with the same password as the argument?
     # add to list
 #    
 
@@ -380,8 +382,8 @@ print(person.get_pets())
 #               in the order specified
 
     #  takes two arguments (a, b)
-    #  if a == 'service' return list in alphabetical order
-    #  if a == 'added_on' return list as is
+    #  if a == 'service' return list in alphabetical order or order added?
+    #  if a == 'added_on' return list accord to date
     #  if b == reverse, return a in reverse
 
 #   7. Name: get_for_service
@@ -423,3 +425,20 @@ print(person.get_pets())
 
 # There are many more examples possible but the above should give you a good
 # idea.
+
+
+from datetime import datetime
+class PasswordManager2():
+
+    def __init__(self):
+        self.lyst = []
+
+    def add(self, service, password):
+        arr = ["!", "@", "$", "%", "&"]
+
+        for char in arr:
+            if password.find(char) >= 0 and len(password) >= 8 :
+                pw_service = dict(service = password)
+                
+            else:
+                None
