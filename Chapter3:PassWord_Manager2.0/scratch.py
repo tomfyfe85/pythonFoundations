@@ -374,6 +374,7 @@ print(person.get_pets())
 
     #  list comp? create new list of passwords - for loop?
         #  for x in list x[1].value ?
+    #  or 
 
 #   6. Name: sort_services_by
 #      Arguments: A string, either 'service' or 'added_on',
@@ -428,17 +429,16 @@ print(person.get_pets())
 
 
 from datetime import datetime
-class PasswordManager2():
-
+class PasswordManager2:
     def __init__(self):
-        self.lyst = []
+        self.list = []
 
     def add(self, service, password):
         arr = ["!", "@", "$", "%", "&"]
-
+        newDict = {}
         for char in arr:
-            if password.find(char) >= 0 and len(password) >= 8 :
-                pw_service = dict(service = password)
-                
+            if password.find(char) >= 0 and len(password) >= 8:
+                newDict[service] = password
+                self.list.append(newDict)
             else:
                 None
