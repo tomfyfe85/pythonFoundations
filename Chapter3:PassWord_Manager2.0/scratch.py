@@ -347,6 +347,8 @@ print(person.get_pets())
     # check if password has been used before in another service
     # does the list include a dictionary with the same password as the argument?
     # add to list
+
+    # need to refactor date time into a more manageable format
 #    
 
 #   3. Name: remove
@@ -438,7 +440,7 @@ class PasswordManager2:
         newDict = {}
         for char in arr:
             if password.find(char) >= 0 and len(password) >= 8:
-                newDict[service] = password
+                newDict[service] = (password, datetime.now() )
                 self.list.append(newDict)
             else:
                 None
