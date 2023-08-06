@@ -435,12 +435,17 @@ class PasswordManager2:
     def __init__(self):
         self.list = []
 
-    def add(self, service, password):
+     def add(self, service, password):
         arr = ["!", "@", "$", "%", "&"]
-        newDict = {}
+        PwDict = {}
+        ServiceDict = {}
         for char in arr:
             if password.find(char) >= 0 and len(password) >= 8:
-                newDict[service] = (password, datetime.now() )
-                self.list.append(newDict)
+                ServiceDict['service'] = service
+                PwDict['password'] = (password)
+                #  datetime.now()
+                ServiceDict.update(PwDict)
+                self.list.append(ServiceDict)
             else:
                 None
+        return self.list
