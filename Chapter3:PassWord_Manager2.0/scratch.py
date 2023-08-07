@@ -366,7 +366,6 @@ print(person.get_pets())
 
     # use password validator again
     # password must be unique 
-    # .items() convert to tuples
     # if list item [1]['service name'] == arg && password is valid ...
     # ... list item [0]['password'] = arg
 
@@ -434,26 +433,42 @@ from datetime import datetime
 class PasswordManager2:
     def __init__(self):
         self.list = []
+        self.arr = ["!", "@", "$", "%", "&"]
 
     def add(self, service, password):
-        arr = ["!", "@", "$", "%", "&"]
         PwDict = {}
         ServiceDict = {}
-        for char in arr:
+        for ele in self.list:
+            if ele["password"] == password:
+                return
+
+        for char in self.arr:
             if password.find(char) >= 0 and len(password) >= 8:
-                ServiceDict['service'] = service
-                PwDict['password'] = (password)
+                ServiceDict["service"] = service
+                PwDict["password"] = password
                 #  datetime.now()
                 ServiceDict.update(PwDict)
                 self.list.append(ServiceDict)
-            else:
-                None
-        return self.list
-    
+        # return self.list
+
     def remove(self, service):
         num = len(self.list) - 1
         print(num)
         for i in range(num):
             if self.list[i]["service"] == service:
                 del self.list[i]
- 
+
+        return self.list
+
+    def update(self, service, password):
+        for char in self.arr:
+            if password.find(char) >= 0 and len(password) >= 8:
+                newPW = password
+
+        for ele in self.list:
+            if ele["password"] == password:
+                return
+            elif ele["service"] == service:
+                ele["password"] = newPW
+
+        return self.list
