@@ -439,7 +439,7 @@ class PasswordManager2:
         PwDict = {}
         ServiceDict = {}
         for ele in self.list:
-            if ele["password"] == password:
+            if ele["password"] == password or ele["service"] == service:
                 return
 
         for char in self.arr:
@@ -452,13 +452,14 @@ class PasswordManager2:
         # return self.list
 
     def remove(self, service):
-        num = len(self.list) - 1
-        print(num)
+        num = len(self.list) 
         for i in range(num):
             if self.list[i]["service"] == service:
+                print([self.list[i]])
+                print(i)
                 del self.list[i]
-
-        return self.list
+                print(self.list)
+        # return self.list
 
     def update(self, service, password):
         for char in self.arr:
@@ -466,9 +467,13 @@ class PasswordManager2:
                 newPW = password
 
         for ele in self.list:
-            if ele["password"] == password:
+            if ele["password"] == password or ele["service"] == service:
                 return
             elif ele["service"] == service:
                 ele["password"] = newPW
 
-        return self.list
+        # return self.list
+
+    def list_services(self):
+        return [ele["service"] for ele in self.list]
+    
