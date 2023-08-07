@@ -435,7 +435,7 @@ class PasswordManager2:
     def __init__(self):
         self.list = []
 
-     def add(self, service, password):
+    def add(self, service, password):
         arr = ["!", "@", "$", "%", "&"]
         PwDict = {}
         ServiceDict = {}
@@ -449,3 +449,11 @@ class PasswordManager2:
             else:
                 None
         return self.list
+    
+    def remove(self, service):
+        num = len(self.list) - 1
+        print(num)
+        for i in range(num):
+            if self.list[i]["service"] == service:
+                del self.list[i]
+ 
