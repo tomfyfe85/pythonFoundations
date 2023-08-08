@@ -438,18 +438,22 @@ class PasswordManager2:
     def add(self, service, password):
         PwDict = {}
         ServiceDict = {}
+        DateDict = {}
         for ele in self.list:
             if ele["password"] == password or ele["service"] == service:
                 return
 
         for char in self.arr:
             if password.find(char) >= 0 and len(password) >= 8:
+                now = datetime.now()
                 ServiceDict["service"] = service
                 PwDict["password"] = password
-                #  datetime.now()
+                DateDict['DateTime'] = str(now.date())
                 ServiceDict.update(PwDict)
+                ServiceDict.update(DateDict)
+
                 self.list.append(ServiceDict)
-        # return self.list
+        return self.list
 
     def remove(self, service):
         num = len(self.list) 
@@ -477,3 +481,16 @@ class PasswordManager2:
     def list_services(self):
         return [ele["service"] for ele in self.list]
     
+
+    def sort_services_by(self, service, added_on, reverse):
+        if service:
+            return  [ele["service"] for ele in self.list]
+        elif service and reverse:
+            return  [ele["service"] for ele in self.list].reverse()
+        elif added_on:
+            sorted_data = sorted(self.list, key=lambda item: item["DateTime"])
+            return sorted_data
+        elif added_on and reverse:
+            sorted_data = sorted(self.list, key=lambda item: item["DateTime"])
+            return sorted_data.reverse()
+        
