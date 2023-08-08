@@ -494,3 +494,9 @@ class PasswordManager2:
             sorted_data = sorted(self.list, key=lambda item: item["DateTime"])
             return sorted_data.reverse()
         
+    def get_for_service(self, service):
+        for ele in self.list:
+            if ele["service"] == service:
+                return ele["password"]
+            else:
+                return None
