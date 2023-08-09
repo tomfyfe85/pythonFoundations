@@ -476,7 +476,7 @@ class PasswordManager2:
             elif ele["service"] == service:
                 ele["password"] = newPW
 
-        # return self.list
+        return self.list
 
     def list_services(self):
         return [ele["service"] for ele in self.list]
@@ -500,3 +500,15 @@ class PasswordManager2:
                 return ele["password"]
             else:
                 return None
+
+
+pw = PasswordManager2()
+
+pw.add("spaceX", "asdfxgh!!")
+pw.add("spaceX", "ajgjgjgj!!!!")
+pw.add("spaceX", "asdfxgh!!")
+
+
+print(pw.add("nasa", "asdfxgh!!!!!!"))
+
+print(pw.update("nasa", "hdhfhfhfhjkk!!"))
