@@ -466,17 +466,27 @@ class PasswordManager2:
         # return self.list
 
     def update(self, service, password):
-        for char in self.arr:
-            if password.find(char) >= 0 and len(password) >= 8:
-                newPW = password
+        # for ele in self.list:
+        #     if ele["password"] == password:
+        #         return
+        # newPW = ""
 
-        for ele in self.list:
-            if ele["password"] == password or ele["service"] == service:
-                return
-            elif ele["service"] == service:
-                ele["password"] = newPW
+        # for char in self.arr:
+        #     if password.find(char) >= 0 and len(password) >= 8:
+        #         newPW = password
 
-        return self.list
+        # for ele in self.list:
+        #     if ele["service"] == service and newPW == password:
+        #         ele["password"] = newPW
+
+        if any(ele['password'] == password for ele in self.list):
+            return
+        
+        if any(char in password for char in self.arr) and len(password) >= 8:
+            for ele in self.list:
+                if ele["service"] == service:
+                    ele["password"] = password
+                break 
 
     def list_services(self):
         return [ele["service"] for ele in self.list]
