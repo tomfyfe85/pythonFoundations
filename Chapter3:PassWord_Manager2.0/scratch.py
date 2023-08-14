@@ -522,3 +522,12 @@ pw.add("spaceX", "asdfxgh!!")
 print(pw.add("nasa", "asdfxgh!!!!!!"))
 
 print(pw.update("nasa", "hdhfhfhfhjkk!!"))
+
+import os
+def does_file_exist(filename):
+    if os.path.isfile('./'+filename) == True:
+        print('hi')
+        return True
+    else:
+        return False
+print(does_file_exist('AirQuality.csv'))
