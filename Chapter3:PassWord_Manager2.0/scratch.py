@@ -531,3 +531,15 @@ def does_file_exist(filename):
     else:
         return False
 print(does_file_exist('AirQuality.csv'))
+
+
+import csv
+file = open('Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/AirQuality.csv')
+print(file)
+
+def get_file_contents(filename):
+    if does_file_exist(filename):
+        f = open("./AirQuality.csv")
+        return f.readlines()
+    else:
+        return "This file cannot be found!"
