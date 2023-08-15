@@ -543,3 +543,9 @@ def get_file_contents(filename):
         return f.readlines()
     else:
         return "This file cannot be found!"
+
+
+def christmas_day_air_quality(filename, include_header_row):
+    if include_header_row == True:
+        get_file_contents(filename)
+    pass
