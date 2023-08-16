@@ -562,7 +562,34 @@ def get_file_contents(filename):
 # * should use get_file_contents() - N.B. as should any subsequent
 # functions you write, using anything previously built if and where necessary
 
+# get header into a list
+# use get_file_contents
+# is header 0 indexed element?
+# is each line one element and data in the element is separated by ;
+# if True loop through data list and append elements beginning with '25'
+#  ... to the list with the header and return
+
+# if false then filter data list by elements starting with '25'
+
 def christmas_day_air_quality(filename, include_header_row):
     if include_header_row == True:
-        get_file_contents(filename)
-    pass
+        newList = []
+        f = get_file_contents(filename)
+        newList.append(f[0])
+        print('true')
+
+        for ele in f:
+
+            if ele[:2] == '25':
+                newList.append(ele)
+        return newList
+    else :
+        falseList = []
+        print('false')
+        q = get_file_contents(filename)
+        print(q)
+        for ele in q:
+            if ele[:2] == '25':
+                falseList.append(ele)
+            print(falseList)
+        return falseList
