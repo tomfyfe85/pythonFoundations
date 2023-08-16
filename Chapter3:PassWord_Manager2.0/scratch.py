@@ -545,6 +545,23 @@ def get_file_contents(filename):
         return "This file cannot be found!"
 
 
+# Purpose: fetch Christmas Day (25th December) air quality data rows, and if
+# boolean argument "include_header_row" is True, return the first header row
+# from the filename as well (if it is False, omit that row)
+# Example:
+#   Call: christmas_day_air_quality("AirQuality.csv", True)
+#   Returns:
+#     Date;Time;CO(GT);PT08.S1(CO);NMHC(GT);C6H6(GT);PT08.S2(NMHC);[...]
+#     25/12/2004;00.00.00;5,9;1505;-200;15,6;1168;567;525;169;1447;[...]
+#     [...]
+#   Call: christmas_day_air_quality("AirQuality.csv", False)
+#   Returns:
+#     25/12/2004;00.00.00;5,9;1505;-200;15,6;1168;567;525;169;1447;[...]
+#     [...]
+# Notes:
+# * should use get_file_contents() - N.B. as should any subsequent
+# functions you write, using anything previously built if and where necessary
+
 def christmas_day_air_quality(filename, include_header_row):
     if include_header_row == True:
         get_file_contents(filename)
