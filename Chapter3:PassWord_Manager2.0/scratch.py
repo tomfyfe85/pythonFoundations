@@ -576,20 +576,25 @@ def christmas_day_air_quality(filename, include_header_row):
         newList = []
         f = get_file_contents(filename)
         newList.append(f[0])
+        print(newList)
         print('true')
 
         for ele in f:
 
-            if ele[:2] == '25':
+            if ele[:10] == '25/12/2004':
                 newList.append(ele)
+        print('newList')
+        # print(newList)
         return newList
+    
     else :
         falseList = []
         print('false')
         q = get_file_contents(filename)
         print(q)
         for ele in q:
-            if ele[:2] == '25':
+            if ele[:10] == '25/12/2004':
                 falseList.append(ele)
             print(falseList)
         return falseList
+    
