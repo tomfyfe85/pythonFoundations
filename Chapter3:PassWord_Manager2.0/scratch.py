@@ -628,4 +628,21 @@ def christmas_day_air_quality(filename, include_header_row):
 
 
 def christmas_day_average_air_quality(filename):
-    pass
+    f = get_file_contents(filename)
+    f.pop(0)
+    counter = 1
+    sumOfAirQuality = 0
+    for ele in f:
+        print(counter)
+        newList = ele.split(";")
+
+        print(newList)
+        if newList[3] != '':
+            print(newList[3])
+            counter += 1
+
+            num = (round(float(newList[3]), 2))
+            sumOfAirQuality += num
+        print(sumOfAirQuality / counter)
+    
+    return sumOfAirQuality / counter
