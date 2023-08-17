@@ -597,4 +597,16 @@ def christmas_day_air_quality(filename, include_header_row):
                 falseList.append(ele)
             print(falseList)
         return falseList
+
+# REFACTORED 
+
+def christmas_day_air_quality(filename, include_header_row):
+    f = get_file_contents(filename)
+    newList = [ele for ele in f if ele[:10] == '25/12/2004']
+    
+    if include_header_row:
+        newList.insert(0, f[0])
+    
+    return newList
+    
     
