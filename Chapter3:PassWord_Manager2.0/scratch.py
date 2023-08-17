@@ -610,3 +610,22 @@ def christmas_day_air_quality(filename, include_header_row):
     return newList
     
     
+# Purpose: fetch Christmas Day average of "PT08.S1(CO)" values to 2 decimal places
+# Example:
+#   Call: christmas_day_average_air_quality("AirQuality.csv")
+#   Returns: 1439.21
+# Data sample:
+# Date;Time;CO(GT);PT08.S1(CO);NMHC(GT);C6H6(GT);PT08.S2(NMHC);NOx(GT);PT08.S3(NOx);NO2(GT);PT08.S4(NO2);PT08.S5(O3);T;RH;AH;;
+# 10/03/2004;18.00.00;2,6;1360;150;11,9;1046;166;1056;113;1692;1268;13,6;48,9;0,7578;;
+
+# divide the sum of every forth number in each element by the number of elements ??
+# Use get_file_content to get the list
+# split(';') each element 
+# get 4th element of each new array,
+# a method... += each result of get 4th element of each new array,
+# b method... keep count of iterations with a counter
+# get result by a/b
+
+
+def christmas_day_average_air_quality(filename):
+    pass
