@@ -646,3 +646,15 @@ def christmas_day_average_air_quality(filename):
         print(sumOfAirQuality / counter)
     
     return sumOfAirQuality / counter
+
+
+# Purpose: scrape all the data and calculate average values for each of the 12 months
+#          for the "PT08.S1(CO)" values, returning a dictionary of keys as integer
+#          representations of months and values as the averages (to 2 decimal places)
+# Example:
+#   Call: get_averages_for_month("AirQuality.csv")
+#   Returns: {1: 1003.47, [...], 12: 948.71}
+# Notes:
+# * Data from months across multiple years should all be averaged together
+def get_averages_for_month(filename):
+    pass
