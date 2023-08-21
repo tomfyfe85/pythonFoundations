@@ -657,4 +657,56 @@ def christmas_day_average_air_quality(filename):
 # Notes:
 # * Data from months across multiple years should all be averaged together
 def get_averages_for_month(filename):
-    pass
+    f = get_file_contents(filename)
+    newDict = {}
+    counter = 0
+    sum = 0
+    counter2 = 0
+    sum2 = 0
+    counter3 = 0
+    sum3 = 0
+    
+
+    for ele in f:
+        newList = ele.split(";")
+        nL = newList[0][3:5]
+        if nL == "01":
+            counter += 1
+            sum += int(newList[3])
+            av = sum / counter
+            newDict[1] = round(float(av), 2)
+            newDict[2] = '2'
+
+        elif nL == '02':
+            newDict[2] = '2'
+
+        elif nL == "03":
+            counter2 += 1
+            sum2 += int(newList[3])
+            av2 = sum2 / counter2
+
+            newDict[3] = round(float(av2), 2)
+        
+        elif nL == '04':
+            newDict[4] = '4'
+            newDict[5] = '4'
+            newDict[6] = '5'
+            newDict[7] = '7'
+            newDict[8] = '8'
+            newDict[9] = '9'
+            newDict[10] = '10'
+            newDict[11] = '11'
+        
+        elif nL == '12':
+            counter3 += 1
+            sum3 += int(newList[3])
+            av = sum3 / counter3
+            newDict[12] = round(float(av), 2)
+
+        else:
+            None
+    new = dict(sorted(newDict.items()))
+    print(new[1])
+    return new
+
+
