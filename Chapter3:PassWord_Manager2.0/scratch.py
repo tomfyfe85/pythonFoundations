@@ -675,27 +675,17 @@ def get_averages_for_month(filename):
             sum += int(newList[3])
             av = sum / counter
             newDict[1] = round(float(av), 2)
-            newDict[2] = '2'
-
-        elif nL == '02':
-            newDict[2] = '2'
 
         elif nL == "03":
             counter2 += 1
             sum2 += int(newList[3])
             av2 = sum2 / counter2
-
             newDict[3] = round(float(av2), 2)
         
         elif nL == '04':
-            newDict[4] = '4'
-            newDict[5] = '4'
-            newDict[6] = '5'
-            newDict[7] = '7'
-            newDict[8] = '8'
-            newDict[9] = '9'
-            newDict[10] = '10'
-            newDict[11] = '11'
+            newDict[2] = '2'
+            for x in range(4,11): 
+                newDict[x] = f'{x}'
         
         elif nL == '12':
             counter3 += 1
@@ -705,8 +695,7 @@ def get_averages_for_month(filename):
 
         else:
             None
+
     new = dict(sorted(newDict.items()))
-    print(new[1])
+    # print(new[1])
     return new
-
-
