@@ -699,3 +699,29 @@ def get_averages_for_month(filename):
     new = dict(sorted(newDict.items()))
     # print(new[1])
     return new
+
+
+# more pythonic way:
+
+def get_averages_for_month(filename):
+    f = get_file_contents(filename)
+    f.pop(0)
+
+    # Initialize lists to store cumulative sums and counts for each month
+    monthly_sum = [0] * 12
+    monthly_count = [0] * 12
+    # [0,0,0,0,0,0,0,0,0,0,0,0,0] Index 0 wont be used
+
+    for ele in f:
+        newList = ele.split(";")
+        print(newList[0][3:5])
+
+        # print(newList[0])
+        # value = int(newList[4])
+
+        # monthly_sum[month] += value 
+
+
+
+
+
