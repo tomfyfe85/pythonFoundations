@@ -708,20 +708,20 @@ def get_averages_for_month(filename):
     f.pop(0)
 
     # Initialize lists to store cumulative sums and counts for each month
-    monthly_sum = [0] * 12
-    monthly_count = [0] * 12
+    monthly_sum = [0] * 13
+    monthly_count = [0] * 13
     # [0,0,0,0,0,0,0,0,0,0,0,0,0] Index 0 wont be used
 
     for ele in f:
         newList = ele.split(";")
-        print(newList[0][3:5])
+        month = int(newList[0][3:5])
+        # print(month)
+        value = int(newList[3])
+        # print(value)
+        monthly_sum[month] += value
+        monthly_count[month] += 1
+        print(monthly_count)
+        print(monthly_sum)
 
-        # print(newList[0])
-        # value = int(newList[4])
-
-        # monthly_sum[month] += value 
-
-
-
-
+    # next iterate over both lists with zip()
 
