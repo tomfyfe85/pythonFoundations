@@ -731,32 +731,34 @@ def get_averages_for_month(filename):
 
 def get_averages_for_month(filename):
     f = get_file_contents(filename)
-    firstLine = f.pop(0)
     f.pop(0)
 
-    # f.insert(0, firstLine)
-    print(f"first line added {f[:3]}")
     # Initialize lists to store cumulative sums and counts for each month
     monthly_sum = [0] * 13
     monthly_count = [0] * 13
     # [0,0,0,0,0,0,0,0,0,0,0,0,0] Index 0 wont be used
-    finalDict = {}
 
+    finalDict = {}
     for ele in f:
         newList = ele.split(";")
-        month = int(newList[0][3:5])
-        print(month)
-        value = int(newList[3])
-        print(value)
-        monthly_sum[month] += value
-        monthly_count[month] += 1
-        print(monthly_count)
-        print(monthly_sum)
-        print(monthly_count)
+        # print(newList[9300])
+        if newList[0][3:5] != '':
+            month = int(newList[0][3:5])
+            # print(f'current month {month}')
+            value = int(newList[3])
+            # print(f'current value = {value}')
+            monthly_sum[month] += value
+            # print(f'current month and sum of value: month- {month}, sum- {value}')
+            monthly_count[month] += 1
+            # print(f'reports per month in 0 index {monthly_count}')
+            # print(month)
+            # print(round(monthly_sum[month]/monthly_count[month], 2))
+            average = round(monthly_sum[month]/monthly_count[month], 2)
+            finalDict[month] = average
 
-    # next iterate over both lists with zip()
+    return finalDict
+        
 
-    # print(newList[0])
-    # value = int(newList[4])
 
-    # monthly_sum[month] += value
+
+
