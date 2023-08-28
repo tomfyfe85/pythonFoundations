@@ -213,7 +213,7 @@ class Calculator:
 #      Returns: a list of all the students who work for that employer
 # filter through list for only students who have been employed by the arg
 # filtered_List = filter(lambda student: for item in student: student[item] == arg, self.list )
-    
+
 # Example usage:
 #   > cohort = Cohort()
 #   > cohort.add_student({'name' : 'Jo', 'employer' : 'NASA'})
@@ -228,26 +228,37 @@ class Calculator:
 def list_students(a):
     return [a]
 
+
 print(list_students(13))
+
 
 def list_employed_by(employer, lyst):
     # new = (list(filter(lambda student: student['employer'] == employer, lyst)))
     # return new
     # return [student for student in lyst if employer == student['employer']]
-  
-  # newList = []
-  # for student in lyst:
-  #     new = list(student.items())
-  #     print(new)
-  #     if new[1][1] == employer:
-  #       newList.append(student)
 
-  # return newList
+    # newList = []
+    # for student in lyst:
+    #     new = list(student.items())
+    #     print(new)
+    #     if new[1][1] == employer:
+    #       newList.append(student)
+
+    # return newList
 
     # return [list(student.items()) for student in lyst if student.get(') == employer]
 
+    print(
+        list_employed_by(
+            "NASA",
+            [
+                {"name": "Jo", "employer": "NASA"},
+                {"name": "Alex", "employer": "NASA"},
+                {"name": "Bobby", "employer": "Google"},
+            ],
+        )
+    )
 
-  print(list_employed_by('NASA', [{'name' : 'Jo', 'employer' : 'NASA'}, {'name' : 'Alex', 'employer' : 'NASA'}, {'name' : 'Bobby', 'employer' : 'Google'}]))
 
 # Class name: Person
 # Purpose: store a person's name, pets and addresses
@@ -264,24 +275,25 @@ def list_employed_by(employer, lyst):
 #      Arguments: none
 #      Returns: a nice summary of the person's pets
 # Example usage:
-  # > person = Person({
-  #     'name' : 'Alex',
-  #     'pets' : [
-  #       {'name' : 'Arthur', 'animal' : 'cat'},
-  #       {'name' : 'Judith', 'animal' : 'dog'},
-  #       {'name' : 'Gwen', 'animal' : 'goldfish'}
-  #     ],
-  #     'addresses' : [
-  #       {'name' : 'work', 'building' : '50', 'street' : 'Commercial Street'},
-  #       {'name' : 'home', 'building' : '10', 'street' : 'South Street'}
-  #     ]
-  #   })
+# > person = Person({
+#     'name' : 'Alex',
+#     'pets' : [
+#       {'name' : 'Arthur', 'animal' : 'cat'},
+#       {'name' : 'Judith', 'animal' : 'dog'},
+#       {'name' : 'Gwen', 'animal' : 'goldfish'}
+#     ],
+#     'addresses' : [
+#       {'name' : 'work', 'building' : '50', 'street' : 'Commercial Street'},
+#       {'name' : 'home', 'building' : '10', 'street' : 'South Street'}
+#     ]
+#   })
 #   > person.get_work_address()
 #   '50 Commercial Street'
 #   > person.get_home_address()
 #   '10 South Street'
 #   > person.get_pets()
 #   'Alex has 3 pets: a cat called Arthur, a dog called Judith, a goldfish called Gwen'
+
 
 class Person:
     def __init__(self, complex_dict):
@@ -293,7 +305,7 @@ class Person:
         return work_address
 
     def get_home_address(self):
-        home = self.dict['addresses'][1]
+        home = self.dict["addresses"][1]
         return f"{home['building']} {home['street']}"
 
     # def get_pets(self):
@@ -302,25 +314,28 @@ class Person:
     #     print(f"{p['name']} has {len(pets)} pets: a {pets[0]['animal']} called {pets[0]['name']}, a {pets[1]['animal']} called {pets[1]['name']}, a {pets[2]['animal']} called {pets[2]['name']}")
     #     return f"{p['name']} has {len(pets)} pets: a {pets[0]['animal']} called {pets[0]['name']}, a {pets[1]['animal']} called {pets[1]['name']}, a {pets[2]['animal']} called {pets[2]['name']}"
 
-
     def get_pets(self):
-        pets = self.dict.get('pets', [])
-        pets_summary = ", ".join([f"a {pet['animal']} called {pet['name']}" for pet in pets])
+        pets = self.dict.get("pets", [])
+        pets_summary = ", ".join(
+            [f"a {pet['animal']} called {pet['name']}" for pet in pets]
+        )
         return f"{self.dict['name']} has {len(pets)} pets: {pets_summary}"
-    
 
-person = Person({
-        'name' : 'Alex',
-    'pets' : [
-    {'name' : 'Arthur', 'animal' : 'cat'},
-    {'name' : 'Judith', 'animal' : 'dog'},
-    {'name' : 'Gwen', 'animal' : 'goldfish'}
-    ],
-    'addresses' : [
-    {'name' : 'work', 'building' : '50', 'street' : 'Commercial Street'},
-    {'name' : 'home', 'building' : '10', 'street' : 'South Street'}
-    ]
-})
+
+person = Person(
+    {
+        "name": "Alex",
+        "pets": [
+            {"name": "Arthur", "animal": "cat"},
+            {"name": "Judith", "animal": "dog"},
+            {"name": "Gwen", "animal": "goldfish"},
+        ],
+        "addresses": [
+            {"name": "work", "building": "50", "street": "Commercial Street"},
+            {"name": "home", "building": "10", "street": "South Street"},
+        ],
+    }
+)
 
 print(person.get_pets())
 
@@ -341,22 +356,22 @@ print(person.get_pets())
 #                 one string representing a password
 #      Returns: None
 
-    # use password validator method from version 1
-    # if pass word is valid, create a new dictionary of password and service name
-    # 
-    # check if password has been used before in another service
-    # does the list include a dictionary with the same password as the argument?
-    # add to list
+# use password validator method from version 1
+# if pass word is valid, create a new dictionary of password and service name
+#
+# check if password has been used before in another service
+# does the list include a dictionary with the same password as the argument?
+# add to list
 
-    # need to refactor date time into a more manageable format
-#    
+# need to refactor date time into a more manageable format
+#
 
 #   3. Name: remove
 #      Purpose: remove a password for a service
 #      Arguments: one string representing a service name
 #      Returns: None
 
-    # Remove from list if list['service name] == argument  
+# Remove from list if list['service name] == argument
 
 #   4. Name: update
 #      Purpose: update a password for a service IF it is valid, otherwise do nothing
@@ -364,18 +379,18 @@ print(person.get_pets())
 #                 one string representing a password
 #      Returns: None
 
-    # use password validator again
-    # password must be unique 
-    # if list item [1]['service name'] == arg && password is valid ...
-    # ... list item [0]['password'] = arg
+# use password validator again
+# password must be unique
+# if list item [1]['service name'] == arg && password is valid ...
+# ... list item [0]['password'] = arg
 
 #   5. Name: list_services
 #      Arguments: none
 #      Returns: a list of all the services for which the user has a password
 
-    #  list comp? create new list of passwords - for loop?
-        #  for x in list x[1].value ?
-    #  or 
+#  list comp? create new list of passwords - for loop?
+#  for x in list x[1].value ?
+#  or
 
 #   6. Name: sort_services_by
 #      Arguments: A string, either 'service' or 'added_on',
@@ -383,16 +398,16 @@ print(person.get_pets())
 #      Returns: a list of all the services for which the user has a password
 #               in the order specified
 
-    #  takes two arguments (a, b)
-    #  if a == 'service' return list in alphabetical order or order added?
-    #  if a == 'added_on' return list accord to date
-    #  if b == reverse, return a in reverse
+#  takes two arguments (a, b)
+#  if a == 'service' return list in alphabetical order or order added?
+#  if a == 'added_on' return list accord to date
+#  if b == reverse, return a in reverse
 
 #   7. Name: get_for_service
 #      Arguments: one string representing a service name
 #      Returns: the password for the given service, or None if none exists
 
-    # filter x['service name'] == arg, x['password]
+# filter x['service name'] == arg, x['password]
 #
 # A reminder of the validity rules:
 #   1. A password must be at least 8 characters long
@@ -430,6 +445,8 @@ print(person.get_pets())
 
 
 from datetime import datetime
+
+
 class PasswordManager2:
     def __init__(self):
         self.list = []
@@ -448,7 +465,7 @@ class PasswordManager2:
                 now = datetime.now()
                 ServiceDict["service"] = service
                 PwDict["password"] = password
-                DateDict['DateTime'] = str(now.date())
+                DateDict["DateTime"] = str(now.date())
                 ServiceDict.update(PwDict)
                 ServiceDict.update(DateDict)
 
@@ -456,7 +473,7 @@ class PasswordManager2:
         return self.list
 
     def remove(self, service):
-        num = len(self.list) 
+        num = len(self.list)
         for i in range(num):
             if self.list[i]["service"] == service:
                 print([self.list[i]])
@@ -479,31 +496,30 @@ class PasswordManager2:
         #     if ele["service"] == service and newPW == password:
         #         ele["password"] = newPW
 
-        if any(ele['password'] == password for ele in self.list):
+        if any(ele["password"] == password for ele in self.list):
             return
-        
+
         if any(char in password for char in self.arr) and len(password) >= 8:
             for ele in self.list:
                 if ele["service"] == service:
                     ele["password"] = password
-                break 
+                break
 
     def list_services(self):
         return [ele["service"] for ele in self.list]
-    
 
     def sort_services_by(self, service, added_on, reverse):
         if service:
-            return  [ele["service"] for ele in self.list]
+            return [ele["service"] for ele in self.list]
         elif service and reverse:
-            return  [ele["service"] for ele in self.list].reverse()
+            return [ele["service"] for ele in self.list].reverse()
         elif added_on:
             sorted_data = sorted(self.list, key=lambda item: item["DateTime"])
             return sorted_data
         elif added_on and reverse:
             sorted_data = sorted(self.list, key=lambda item: item["DateTime"])
             return sorted_data.reverse()
-        
+
     def get_for_service(self, service):
         for ele in self.list:
             if ele["service"] == service:
@@ -524,18 +540,26 @@ print(pw.add("nasa", "asdfxgh!!!!!!"))
 print(pw.update("nasa", "hdhfhfhfhjkk!!"))
 
 import os
+
+
 def does_file_exist(filename):
-    if os.path.isfile('./'+filename) == True:
-        print('hi')
+    if os.path.isfile("./" + filename) == True:
+        print("hi")
         return True
     else:
         return False
-print(does_file_exist('AirQuality.csv'))
+
+
+print(does_file_exist("AirQuality.csv"))
 
 
 import csv
-file = open('Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/AirQuality.csv')
+
+file = open(
+    "Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/AirQuality.csv"
+)
 print(file)
+
 
 def get_file_contents(filename):
     if does_file_exist(filename):
@@ -571,45 +595,47 @@ def get_file_contents(filename):
 
 # if false then filter data list by elements starting with '25'
 
+
 def christmas_day_air_quality(filename, include_header_row):
     if include_header_row == True:
         newList = []
         f = get_file_contents(filename)
         newList.append(f[0])
         print(newList)
-        print('true')
+        print("true")
 
         for ele in f:
-
-            if ele[:10] == '25/12/2004':
+            if ele[:10] == "25/12/2004":
                 newList.append(ele)
-        print('newList')
+        print("newList")
         # print(newList)
         return newList
-    
-    else :
+
+    else:
         falseList = []
-        print('false')
+        print("false")
         q = get_file_contents(filename)
         print(q)
         for ele in q:
-            if ele[:10] == '25/12/2004':
+            if ele[:10] == "25/12/2004":
                 falseList.append(ele)
             print(falseList)
         return falseList
 
-# REFACTORED 
+
+# REFACTORED
+
 
 def christmas_day_air_quality(filename, include_header_row):
     f = get_file_contents(filename)
-    newList = [ele for ele in f if ele[:10] == '25/12/2004']
-    
+    newList = [ele for ele in f if ele[:10] == "25/12/2004"]
+
     if include_header_row:
         newList.insert(0, f[0])
-    
+
     return newList
-    
-    
+
+
 # Purpose: fetch Christmas Day average of "PT08.S1(CO)" values to 2 decimal places
 # Example:
 #   Call: christmas_day_average_air_quality("AirQuality.csv")
@@ -620,7 +646,7 @@ def christmas_day_air_quality(filename, include_header_row):
 
 # divide the sum of every forth number in each element by the number of elements ??
 # Use get_file_content to get the list
-# split(';') each element 
+# split(';') each element
 # get 4th element of each new array,
 # a method... += each result of get 4th element of each new array,
 # b method... keep count of iterations with a counter
@@ -637,14 +663,14 @@ def christmas_day_average_air_quality(filename):
         newList = ele.split(";")
 
         print(newList)
-        if newList[3] != '':
+        if newList[3] != "":
             print(newList[3])
             counter += 1
 
-            num = (round(float(newList[3]), 2))
+            num = round(float(newList[3]), 2)
             sumOfAirQuality += num
         print(sumOfAirQuality / counter)
-    
+
     return sumOfAirQuality / counter
 
 
@@ -665,7 +691,6 @@ def get_averages_for_month(filename):
     sum2 = 0
     counter3 = 0
     sum3 = 0
-    
 
     for ele in f:
         newList = ele.split(";")
@@ -681,13 +706,13 @@ def get_averages_for_month(filename):
             sum2 += int(newList[3])
             av2 = sum2 / counter2
             newDict[3] = round(float(av2), 2)
-        
-        elif nL == '04':
-            newDict[2] = '2'
-            for x in range(4,11): 
-                newDict[x] = f'{x}'
-        
-        elif nL == '12':
+
+        elif nL == "04":
+            newDict[2] = "2"
+            for x in range(4, 11):
+                newDict[x] = f"{x}"
+
+        elif nL == "12":
             counter3 += 1
             sum3 += int(newList[3])
             av = sum3 / counter3
@@ -703,25 +728,35 @@ def get_averages_for_month(filename):
 
 # more pythonic way:
 
+
 def get_averages_for_month(filename):
     f = get_file_contents(filename)
+    firstLine = f.pop(0)
     f.pop(0)
 
+    # f.insert(0, firstLine)
+    print(f"first line added {f[:3]}")
     # Initialize lists to store cumulative sums and counts for each month
     monthly_sum = [0] * 13
     monthly_count = [0] * 13
     # [0,0,0,0,0,0,0,0,0,0,0,0,0] Index 0 wont be used
+    finalDict = {}
 
     for ele in f:
         newList = ele.split(";")
         month = int(newList[0][3:5])
-        # print(month)
+        print(month)
         value = int(newList[3])
-        # print(value)
+        print(value)
         monthly_sum[month] += value
         monthly_count[month] += 1
         print(monthly_count)
         print(monthly_sum)
+        print(monthly_count)
 
     # next iterate over both lists with zip()
 
+    # print(newList[0])
+    # value = int(newList[4])
+
+    # monthly_sum[month] += value
