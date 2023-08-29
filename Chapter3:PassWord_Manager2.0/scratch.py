@@ -742,7 +742,7 @@ def get_averages_for_month(filename):
     for ele in f:
         newList = ele.split(";")
         # print(newList[9300])
-        if newList[0][3:5] != '':
+        if newList[0][3:5] != "":
             month = int(newList[0][3:5])
             # print(f'current month {month}')
             value = int(newList[3])
@@ -753,11 +753,10 @@ def get_averages_for_month(filename):
             # print(f'reports per month in 0 index {monthly_count}')
             # print(month)
             # print(round(monthly_sum[month]/monthly_count[month], 2))
-            average = round(monthly_sum[month]/monthly_count[month], 2)
+            average = round(monthly_sum[month] / monthly_count[month], 2)
             finalDict[month] = average
 
     return finalDict
-
 
 
 # Purpose: write only the rows relating to March (any year) to a new file, in the same
@@ -774,14 +773,16 @@ def get_averages_for_month(filename):
 # create empty list
 # iterate through f and .split(';') each element and if newList[0][3:5] == '3' or newList[0][:4] == "Date"
 # add to empty list
-# 
+#
 # create csv file in the same directory as AirQuality.csv and save list to new csv file
-
 import csv
+
+
 def create_march_data(filename):
-    
-        
-
-
-
-
+    f = get_file_contents(filename)
+    dataList = []
+    for ele in f:
+        newList = ele.split(";")
+        if newList[0][:4] == "Date" or newList[0][3:5] == "03":
+            dataList.append(newList)
+    # print(dataList[0])
