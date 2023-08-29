@@ -733,8 +733,8 @@ def get_averages_for_month(filename):
     f = get_file_contents(filename)
     f.pop(0)
 
-    # Initialize lists to store cumulative sums and counts for each month
     monthly_sum = [0] * 13
+    # Initialize lists to store cumulative sums and counts for each month
     monthly_count = [0] * 13
     # [0,0,0,0,0,0,0,0,0,0,0,0,0] Index 0 wont be used
 
@@ -757,6 +757,29 @@ def get_averages_for_month(filename):
             finalDict[month] = average
 
     return finalDict
+
+
+
+# Purpose: write only the rows relating to March (any year) to a new file, in the same
+# location as the original, including the header row of labels
+# Example
+#   Call: create_march_data("AirQuality.csv")
+#   Returns: nothing, but writes header + March data to file called
+#            "AirQualityMarch.csv" in same directory as "AirQuality.csv"
+
+#  look up how to create a new file in a function and save it to a directory
+#  csv.writer -  This function writes the data to a CSV file.
+
+# use get_file_contents
+# create empty list
+# iterate through f and .split(';') each element and if newList[0][3:5] == '3' or newList[0][:4] == "Date"
+# add to empty list
+# 
+# create csv file in the same directory as AirQuality.csv and save list to new csv file
+
+import csv
+def create_march_data(filename):
+    
         
 
 
