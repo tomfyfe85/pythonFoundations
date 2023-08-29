@@ -778,11 +778,19 @@ def get_averages_for_month(filename):
 import csv
 
 
+import csv
+
+
 def create_march_data(filename):
     f = get_file_contents(filename)
     dataList = []
     for ele in f:
         newList = ele.split(";")
         if newList[0][:4] == "Date" or newList[0][3:5] == "03":
-            dataList.append(newList)
-    # print(dataList[0])
+            dataList.append(newList[0:5])
+
+    filePath = "/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/AirQualityMarch.csv"
+
+    with open("AirQualityMarch.csv", "w", newline="") as f:
+        writer = csv.writer(f, delimiter=";")
+        writer.writerows(dataList)
