@@ -794,3 +794,27 @@ def create_march_data(filename):
     with open("AirQualityMarch.csv", "w", newline="") as f:
         writer = csv.writer(f, delimiter=";")
         writer.writerows(dataList)
+
+    # Purpose: write monthly responses files to a new directory called "monthly_responses",
+    # in the same location as AirQuality.csv, each using the name format "mm-yyyy.csv",
+    # including the header row of labels in each one.
+    # Example
+    #   Call: create_monthly_responses("AirQuality.csv")
+    #   Returns: nothing, but files such as monthly_responses/05-2004.csv exist containing
+    #            data matching responses from that month and year
+
+    # create a new directory from within the function called "monthly_responses",
+    # create a file for each month in each year
+    # each file will contain all the info for that month, in that year
+
+    # file name should be EG 07-2004.csv
+    #  => "/monthly_responses/07-2004.csv"
+
+    # find out how to create a file named after info given in a list
+    # if dates in list of info match file name, add to file as above
+
+    # perhaps loop though AirQuality.csv to create files to directory
+    # loop through AirQuality.csv and if dates match, add to specific file
+
+    def create_monthly_responses(filename):
+        pass
