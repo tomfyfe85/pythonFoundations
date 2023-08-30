@@ -840,3 +840,9 @@ def create_monthly_responses(filename):
             writer = csv.writer(f, delimiter=";")
             writer.writerows(dataList)
         dataList = []
+
+    # files not being saved into correct directory
+    # Not working due to file being over written on each iteration
+    # The file must only be created once and have all data for the month -year of same name in it
+
+    # ON THE RIGHT TRACK THOUGH!
