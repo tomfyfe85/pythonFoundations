@@ -816,5 +816,27 @@ def create_march_data(filename):
     # perhaps loop though AirQuality.csv to create files to directory
     # loop through AirQuality.csv and if dates match, add to specific file
 
-    def create_monthly_responses(filename):
-        pass
+
+def create_monthly_responses(filename):
+    path = "/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses"
+    os.mkdir(path)
+    f = get_file_contents(filename)
+    header = f.pop(0)
+
+    dataList = []
+    print([header])
+    for ele in f:
+        newList = ele.split(";")
+        month = newList[0][3:5]
+        year = newList[0][6:10]
+        monthAndDate = newList[0][3:10]
+        # if newList[0][:4] == "Date" or newList[0][3:5] == "03":
+        dataList.append([header])
+        dataList.append(newList)
+
+        filePath = "/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/{month}-{year}.csv"
+
+        with open(f"{month}-{year}.csv", "w", newline="") as f:
+            writer = csv.writer(f, delimiter=";")
+            writer.writerows(dataList)
+        dataList = []
