@@ -817,46 +817,31 @@ def create_march_data(filename):
     # loop through AirQuality.csv and if dates match, add to specific file
 
 
-d f = get_file_contents(filename)
+def create_monthly_responses(filename):
+    f = get_file_contents(filename)
     header = f.pop(0)
-
     folder_path = "/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/"
     os.mkdir(folder_path)
     dataList = []
-    # print([header])
-
-    # filePath = '/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/01-2005.csv'
-    # file_path = os.path.join(folder_path, fileName)
-
-    # with open(filePath, "w",) as file:
-    #         # writer = csv.writer(f, delimiter=";")
-    #         # writer.writerows(dataList)
-    #         file.write(dataList)
-
-    # os.chmod(file_path, 0o666)
 
     for ele in f:
         newList = ele.split(";")
-        month = newList[0][3:5]
-        year = newList[0][6:10] sdfdsf
-        monthAndDate = newList[0][3:10]
-        # if newList[0][:4] == "Date" or newList[0][3:5] == "03":
-        dataList.append([header])
-        dataList.append(newList)
+        if newList[0] != "":
+            # print(newList[0])
+            month = newList[0][3:5]
 
-        filePath = folder_path + f"{month}-{year}.csv"
-        print(filePath)
+            monthAndDate = newList[0][3:10]
+            year = newList[0][6:10]
+            trim = header.split(";")
+            dataList.append(trim[0:-2])
+            # print([header])
+            dataList.append(newList[0:-2])
+            # print(dataList)
 
-        with open(filePath, "w", newline="") as f:
-            writer = csv.writer(f, delimiter=";")
-            writer.writerows(dataList)
-        dataList = []
+            filePath = folder_path + f"{month}-{year}.csv"
+            # print(filePath)
 
-    # Not working due to file being over written on each iteration
-    # The file must only be created once and have all data for the month -year of same name in it
-
-    # ON THE RIGHT TRACK THOUGH!!!!!!!!
-
-
-# /Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/01-2005.csv
-# /Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/01-2005.csv
+            with open(filePath, "w", newline="") as f:
+                writer = csv.writer(f, delimiter=";")
+                writer.writerows(dataList)
+            dataList = []
