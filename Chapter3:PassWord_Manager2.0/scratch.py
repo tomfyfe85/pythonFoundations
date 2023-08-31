@@ -817,14 +817,24 @@ def create_march_data(filename):
     # loop through AirQuality.csv and if dates match, add to specific file
 
 
-def create_monthly_responses(filename):
-    path = "/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses"
-    os.mkdir(path)
-    f = get_file_contents(filename)
+d f = get_file_contents(filename)
     header = f.pop(0)
 
+    folder_path = "/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/"
+    os.mkdir(folder_path)
     dataList = []
-    print([header])
+    # print([header])
+
+    # filePath = '/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/01-2005.csv'
+    # file_path = os.path.join(folder_path, fileName)
+
+    # with open(filePath, "w",) as file:
+    #         # writer = csv.writer(f, delimiter=";")
+    #         # writer.writerows(dataList)
+    #         file.write(dataList)
+
+    # os.chmod(file_path, 0o666)
+
     for ele in f:
         newList = ele.split(";")
         month = newList[0][3:5]
@@ -834,15 +844,19 @@ def create_monthly_responses(filename):
         dataList.append([header])
         dataList.append(newList)
 
-        filePath = "/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/{month}-{year}.csv"
+        filePath = folder_path + f"{month}-{year}.csv"
+        print(filePath)
 
-        with open(f"{month}-{year}.csv", "w", newline="") as f:
+        with open(filePath, "w", newline="") as f:
             writer = csv.writer(f, delimiter=";")
             writer.writerows(dataList)
         dataList = []
 
-    # files not being saved into correct directory
     # Not working due to file being over written on each iteration
     # The file must only be created once and have all data for the month -year of same name in it
 
     # ON THE RIGHT TRACK THOUGH!
+
+
+# /Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/01-2005.csv
+# /Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/01-2005.csv
