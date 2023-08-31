@@ -838,7 +838,7 @@ d f = get_file_contents(filename)
     for ele in f:
         newList = ele.split(";")
         month = newList[0][3:5]
-        year = newList[0][6:10]
+        year = newList[0][6:10] sdfdsf
         monthAndDate = newList[0][3:10]
         # if newList[0][:4] == "Date" or newList[0][3:5] == "03":
         dataList.append([header])
@@ -855,7 +855,7 @@ d f = get_file_contents(filename)
     # Not working due to file being over written on each iteration
     # The file must only be created once and have all data for the month -year of same name in it
 
-    # ON THE RIGHT TRACK THOUGH!
+    # ON THE RIGHT TRACK THOUGH!!!!!!!!
 
 
 # /Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/01-2005.csv
