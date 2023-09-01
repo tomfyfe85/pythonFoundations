@@ -825,23 +825,35 @@ def create_monthly_responses(filename):
     dataList = []
 
     for ele in f:
+        
         newList = ele.split(";")
-        if newList[0] != "":
+        if newList[0] != '' :
             # print(newList[0])
             month = newList[0][3:5]
 
             monthAndDate = newList[0][3:10]
             year = newList[0][6:10]
-            trim = header.split(";")
-            dataList.append(trim[0:-2])
+            trim = header.split(';')
             # print([header])
+
             dataList.append(newList[0:-2])
             # print(dataList)
-
+            
             filePath = folder_path + f"{month}-{year}.csv"
             # print(filePath)
 
-            with open(filePath, "w", newline="") as f:
+            
+            with open(filePath, "w", newline='') as f:
                 writer = csv.writer(f, delimiter=";")
+                # dataList.insert(0, trim[0:-2])
                 writer.writerows(dataList)
-            dataList = []
+            # dataList = []
+
+    # each file contain all info for every month
+
+    
+    # ON THE RIGHT TRACK THOUGH!
+
+
+# /Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/01-2005.csv
+# /Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/01-2005.csv
