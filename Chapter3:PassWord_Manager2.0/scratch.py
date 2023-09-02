@@ -813,42 +813,44 @@
     # loop through AirQuality.csv and if dates match, add to specific file
 
 
-# def create_monthly_responses(filename):
-#     f = get_file_contents(filename)
-#     header = f.pop(0)
-#     folder_path = "/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/"
-#     os.mkdir(folder_path)
-#     dataList = []
+def create_monthly_responses(filename):
+    f = get_file_contents(filename)
+    header = f.pop(0)
+    print(header)
+    
+    folder_path = "/Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/monthly_responses/"
+    os.mkdir(folder_path)
+    dataList = []
 
-#     for ele in f:
-        
-#         newList = ele.split(";")
-#         if newList[0] != '' :
-#             # print(newList[0])
-#             month = newList[0][3:5]
+    monthCount = [0] * 13
+    for ele in f:
+        newList = ele.split(";")
 
-#             monthAndDate = newList[0][3:10]
-#             year = newList[0][6:10]
-#             trim = header.split(';')
-#             # print([header])
+        if newList[0] != "":
+            month = newList[0][3:5]
+            # print(month)
+            year = newList[0][6:10]
+            monthAndDate = newList[0][3:10]
+            monthCount[int(month)] = int(month)
+            # print(f"monthAndDate = {monthAndDate}, monthCount = {monthCount} " )
+            # print( int(monthAndDate[0:2]))
 
-#             dataList.append(newList[0:-2])
-#             # print(dataList)
-            
-#             filePath = folder_path + f"{month}-{year}.csv"
-#             # print(filePath)
+            if monthCount[int(month)] == int(monthAndDate[0:2]):
+                    dataList.append(newList[0:-2])
+                    dataList = []
+                    # dataList.append([header][0])
+                    filePath = folder_path + f"{month}-{year}.csv"
+                    with open(filePath, "w", newline="") as f:
+                        writer = csv.writer(f, delimiter=";")
+                        writer.writerows(dataList)
 
-            
-#             with open(filePath, "w", newline='') as f:
-#                 writer = csv.writer(f, delimiter=";")
-#                 # dataList.insert(0, trim[0:-2])
-#                 writer.writerows(dataList)
-            # dataList = []
+    #  plan1 - Use conditional to only append the next iteration if the data matches the date of the last element of the list, else list =[] 
+    #  plan2 - Use conditional as above, but make a new list or for each month and store in a main list. There should be an individual nested list
+    # ... for each month. Now iterate though in a new loop, each time creating a new file etc and adding the data for each month.
 
     # each file contain all info for every month
-
-    
     # ON THE RIGHT TRACK THOUGH!
+
 
 
 # /Users/tomfyfe/codes/makersProjects/python/pythonFoundationsMakersRepo/python_foundations/extension_challenges/01_files/program/01-2005.csv
