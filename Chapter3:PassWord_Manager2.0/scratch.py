@@ -868,7 +868,7 @@ url = urlopen("https://jsonplaceholder.typicode.com/users")
 def load_data_from_url(url):
     file = urlopen(url)
     response = file.read().decode("UTF-8")
-    json_data = json.loads(response)
+    json_data = json.loads(response.read)
     return json_data
 
 
